@@ -1,9 +1,13 @@
 fetch("https://fakestoreapi.com/products")
 .then(res=>res.json())
 .then(data=>{
+   let products = localStorage.setItem("products",JSON.stringify(data))
     console.log(data)
+    // console.log(data)
     let container11 = document.getElementById("container11")
+    
     for(var obj of data){
+       let get = JSON.parse(localStorage.getItem("product"))
        let item = document.createElement("div")
        item.className = "item1 p-2 "
        item.innerHTML =`
